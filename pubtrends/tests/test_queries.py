@@ -21,16 +21,8 @@ class QueriesTest(unittest.TestCase):
 
                 self.assertIsInstance(result, types.GeneratorType)
                 res = list(result)
-                self.assertEqual(len(res), 2)
-                expected = [
-                    {
-                        'affiliation': u'Biology Centre v.v.i., Institute of Parasitology AS CR, \u010cesk\xe9 Bud\u011bjovice, Czech Republic. natasharudenko@hotmail.com',
-                    },
-                    {
-                        'affiliation': 'United States',
-                    }
-                ]
-
+                self.assertEqual(len(res), 1)
+                expected = [{'count': 2, 'country': 'united states'}]
                 self.assertEqual(res, expected)
 
     def test_pub_locations_error(self):

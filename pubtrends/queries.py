@@ -59,7 +59,6 @@ class EutilsQueries(object):
                 yield {attribute: key, 'count': occ}
 
         except Exception as e:
-            raise
             raise QueryError(str(e))
 
 

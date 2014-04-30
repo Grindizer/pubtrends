@@ -13,10 +13,16 @@ requires = [
     'pyramid_chameleon',
     'pyramid_debugtoolbar',
     'waitress',
+    'eutils',
+    'mock'
     ]
 
+links = [
+    'https://github.com/Grindizer/eutils/tarball/master#egg=eutils-0.0.1',
+]
+
 setup(name='pubtrends',
-      version='0.0',
+      version='0.0.1',
       description='pubtrends',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
@@ -33,6 +39,7 @@ setup(name='pubtrends',
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,
+      dependency_links=links,
       tests_require=requires,
       test_suite="pubtrends",
       entry_points="""\

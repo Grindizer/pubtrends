@@ -3,7 +3,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   color: #ffffff;
-  background: #bc2131;
+  background: #bcb799;
 }
 h1,
 h2,
@@ -27,7 +27,7 @@ p {
   font-weight: 700;
 }
 .starter-template {
-  margin-top: 250px;
+  margin-top: 20px;
 }
 .starter-template .content {
   margin-left: 10px;
@@ -93,6 +93,78 @@ p {
   float: right;
   right: 0;
 }
+
+.form-inline .form-group .year {
+    width: 60px;
+}
+
+.chart-container rect {
+  fill: steelblue;
+}
+
+.chart-container text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+div .chart-container {
+    min-height: 300px;
+    min-width: 800px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+div#per_year_chart {
+    visibility: hidden;
+}
+
+svg {
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkcyan;
+}
+div#map {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-color: rgb(229, 227, 223);
+    overflow: hidden;
+    border-style: solid;
+    -webkit-transform: translateZ(0px);
+    visibility: hidden;
+}
+
+.maps {
+    visibility: hidden;
+}
+
+
 @media (max-width: 1199px) {
   .starter-template .content h1 {
     font-size: 45px;

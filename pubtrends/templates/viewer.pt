@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="${request.locale_name}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pyramid web application">
+    <meta name="author" content="Pylons Project">
+    <link rel="shortcut icon" href="${request.static_url('pubtrends:static/pyramid-16x16.png')}">
+
+    <title>Publication Trends Viewer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="${request.static_url('pubtrends:static/libs/bootstrap.min.css')}" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="${request.static_url('pubtrends:static/libs/jquery.min.js')}"></script>
+    <script src="${request.static_url('pubtrends:static/libs/bootstrap.min.js')}"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="${request.static_url('pubtrends:static/theme.css')}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- add d3js file -->
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="${request.static_url('pubtrends:static/custom.js')}"></script>
+
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+      var script = '<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer';
+      if (document.location.search.indexOf('compiled') !== -1) {
+        script += '_compiled';
+      }
+      script += '.js"><' + '/script>';
+      document.write(script);
+    </script>
+    <script src="${request.static_url('pubtrends:static/map.js')}"></script>
+  </head>
+
+  <body>
+
+    <div class="starter-template">
+      <div class="container">
+        <div class="row" class="col-md-6 col-md-offset-3">
+            <h3>Medical publication trends</h3>
+            <p>Search the <a href="http://www.ncbi.nlm.nih.gov/">ncbi</a> medical database
+                and show the occurrence of input term per year</p>
+        </div>
+        <div class="row">
+          <div >
+            <form class="form-inline" role="form" id="search">
+                <div class="form-group" id="term" >
+                    <label class="sr-only" for="term">Search</label>
+                    <input type="text" class="form-control" placeholder="Search" width="80%">
+                </div>
+                <div class="form-group" id="start">
+                    <label class="sr-only" for="from">Start date</label>
+                    <input type="text" class="form-control year" placeholder="from" maxlength="4">
+                </div>
+                <div class="form-group" id="stop">
+                    <label class="sr-only" for="to">End date</label>
+                    <input type="text" class="form-control year" placeholder="to" maxlength="4">
+                </div>
+                <button type="button" class="btn btn-default" id="go">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="row">
+            <div id="per_year_chart" class="chart-container"></div>
+        </div>
+
+        <div class="row">
+            <p class="maps">Distribution of medical publications per country (experimental version):</p>
+            <p class="maps">(may take a moment before all data are laoded).</p> <img class="loading maps" src="${request.static_url('pubtrends:static/3-0.gif')}"/>
+            <div id="map"></div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  </body>
+</html>

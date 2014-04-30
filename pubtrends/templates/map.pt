@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>MarkerClusterer Example </title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        var source = [
+            {'location': 'paris', 'count': 5},
+            {'location': 'london', 'count': 10}
+        ];
+    </script>
+    <script type="text/javascript">
+      var script = '<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer';
+      if (document.location.search.indexOf('compiled') !== -1) {
+        script += '_compiled';
+      }
+      script += '.js"><' + '/script>';
+      document.write(script);
+    </script>
+
+    <script type="text/javascript">
+      function initialize() {
+        var center = new google.maps.LatLng(48.8534100, 2.3488000);
+
+        var options = {
+          'zoom': 2,
+          'center': center,
+          'mapTypeId': google.maps.MapTypeId.ROADMAP
+        };
+        var geocoder = new google.maps.Geocoder();
+        var map = new google.maps.Map(document.getElementById("map"), options);
+        var markers = []
+
+
+        function place_mark(i) {
+            geocoder.geocode({ 'address': source[i].location}, function(results, status) {
+                var latLng = results[0].geometry.location;
+                debugger;
+                var mark = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+source[i].count+'|FF0000|000000'
+                });
+            });
+        };
+        //var markercount = data.length
+        for (var i=0; i < source.length; i++) {
+                place_mark(i);
+            }
+      }
+
+    </script>
+  </head>
+  <body onload="initialize()" onunload="GUnload()">
+    <h3>A simple example of MarkerClusterer (2 markers)</h3>
+    <div id="map" style="width:600px;height:400px;"></div>
+  </body>
+</html>

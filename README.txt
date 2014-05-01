@@ -3,13 +3,13 @@ PubTrends
 =============
 
 simple web application for medical
-epublication statistic.
+publication statistic.
 
 ===============
 Install and run 
 ===============
 
-# git clone toto
+# git clone git@github.com:Grindizer/pubtrends.git
 # cd pubtrends
 # python setup.py install
 

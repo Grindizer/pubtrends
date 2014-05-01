@@ -9,7 +9,7 @@ publication statistic.
 Install and run 
 ===============
 
-# git clone git@github.com:Grindizer/pubtrends.git
+# git clone https://github.com/Grindizer/pubtrends.git
 # cd pubtrends
 # python setup.py install
 

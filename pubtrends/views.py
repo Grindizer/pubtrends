@@ -1,11 +1,17 @@
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPBadRequest
+from pyramid.view import HTTPFound
 
 from queries import queries
 from datetime import date
 
+
+@view_config(route_name='home')
+def home(request):
+    return HTTPFound('/viewer/')
+
 @view_config(route_name='viewer', renderer='templates/viewer.pt')
-def my_view(request):
+def viewer(request):
     return {}
 
 @view_config(route_name='map', renderer='templates/map.pt')

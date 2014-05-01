@@ -12,6 +12,7 @@ def main(global_config, **settings):
     config.add_route('api_locations', '/api/locations/')
 
     config.add_route('viewer', '/viewer/')
+    config.add_route('home', '/')
 
     config.add_route('map', '/map/')
     config.scan()

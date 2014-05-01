@@ -13,12 +13,12 @@ requires = [
     'pyramid_chameleon',
     'pyramid_debugtoolbar',
     'waitress',
-    'eutils',
+    'eutils==0.0.6',
     'mock'
     ]
 
 links = [
-    'https://github.com/Grindizer/eutils/tarball/master#egg=eutils-0.0.1',
+    'https://github.com/Grindizer/eutils/tarball/master#egg=eutils-0.0.6',
 ]
 
 setup(name='pubtrends',
